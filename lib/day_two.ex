@@ -35,5 +35,23 @@ defmodule Advent2018.DayTwo do
   end
 
   def part_two(input) do
+    ids = input
+    |> String.trim()
+    |> String.split("\n")
+
+    id_length = ids
+    |> List.first()
+    |> String.length()
+
+    for x <- ids, y <- ids do
+      String.to_charlist(x)
+      |> Enum.zip(String.to_charlist(y))
+      |> Enum.map(fn {a, b} -> {a, a - b} end)
+      |> Enum.filter(fn {a, b} -> b == 0 end)
+      |> Enum.map(fn {a, b} -> a end)
+    end
+    |> Enum.filter(fn a -> Enum.count(a) == id_length - 1 end)
+    |> Enum.uniq()
+    |> List.first()
   end
 end

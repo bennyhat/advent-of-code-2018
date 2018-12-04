@@ -15,17 +15,17 @@ defmodule Advent2018.DayTwo.Test do
     assert Advent2018.DayTwo.part_one(input) == 12
   end
 
-  test "finds first repating frequency" do
+  test "finds the common letters for the matching ids" do
     input = """
-    +1
-    +2
-    -2
-    +3
-    -4
-    +3
-    -1
+    abcde
+    fghij
+    klmno
+    pqrst
+    fguij
+    axcye
+    wvxyz
     """
 
-    assert Advent2018.DayTwo.part_two(input) == 1
+    assert Advent2018.DayTwo.part_two(input) == 'fgij'
   end
 end
